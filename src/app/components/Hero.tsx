@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import { motion } from 'motion/react';
 
 export function Hero() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -76,28 +77,57 @@ export function Hero() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 flex flex-col items-center text-center">
-        <a href="#" className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white/80 backdrop-blur-sm px-3 py-1 text-sm font-medium text-zinc-600 hover:bg-white transition-colors mb-8">
-          <span className="flex h-2 w-2 rounded-full bg-[#2d8cf0]"></span>
-          全新版本 v2.0 现已发布
-          <ChevronRight className="h-4 w-4 text-zinc-400" />
-        </a>
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-zinc-900 mb-6 max-w-4xl leading-[1.1]">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <a href="#" className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white/80 backdrop-blur-sm px-3 py-1 text-sm font-medium text-zinc-600 hover:bg-white transition-colors mb-8">
+            <span className="flex h-2 w-2 rounded-full bg-[#2d8cf0]"></span>
+            全新版本 v2.0 现已发布
+            <ChevronRight className="h-4 w-4 text-zinc-400" />
+          </a>
+        </motion.div>
+
+        <motion.h1 
+          className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-zinc-900 mb-6 max-w-4xl leading-[1.1]"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
           构建优秀的<br className="md:hidden" />车载云端生态
-        </h1>
-        <p className="text-lg md:text-xl text-zinc-500 mb-10 max-w-2xl">
+        </motion.h1>
+
+        <motion.p 
+          className="text-lg md:text-xl text-zinc-500 mb-10 max-w-2xl"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
           专为车载设备和 IOT 设备量身定制的操作系统。提供实时流媒体、增值云服务与全面开发套件。
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-4 mb-20">
-          <button className="rounded-lg bg-[#2d8cf0] px-6 py-3 text-sm font-medium text-white hover:bg-[#2074d6] transition-colors shadow-sm">
+        </motion.p>
+
+        <motion.div 
+          className="flex flex-wrap items-center justify-center gap-4 mb-20"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          <button className="rounded-lg bg-[#2d8cf0] px-6 py-3 text-sm font-medium text-white hover:bg-[#2074d6] transition-colors shadow-sm active:scale-95">
             快速开始
           </button>
-          <button className="rounded-lg border border-zinc-200 bg-white px-6 py-3 text-sm font-medium text-zinc-900 hover:bg-zinc-50 transition-colors">
+          <button className="rounded-lg border border-zinc-200 bg-white px-6 py-3 text-sm font-medium text-zinc-900 hover:bg-zinc-50 transition-colors active:scale-95">
             阅读文档
           </button>
-        </div>
+        </motion.div>
 
         {/* Mock Dashboard Graphic with Real Image */}
-        <div className="w-full max-w-5xl rounded-xl border border-zinc-200 bg-white overflow-hidden text-left flex flex-col shadow-sm">
+        <motion.div 
+          className="w-full max-w-5xl rounded-xl border border-zinc-200 bg-white overflow-hidden text-left flex flex-col shadow-sm"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
           <div className="flex flex-1 overflow-hidden h-[400px] md:h-[600px] relative bg-zinc-900">
             <div className="absolute inset-0 bg-black">
               {carouselImages.map((src, index) => (
@@ -142,7 +172,7 @@ export function Hero() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

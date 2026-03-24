@@ -1,6 +1,7 @@
 import Slider from 'react-slick';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import { motion } from 'motion/react';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -102,12 +103,24 @@ export function CaseStudies() {
 
   return (
     <section className="mx-auto max-w-7xl px-6 py-24 border-t border-zinc-200">
-      <div className="text-center mb-16">
+      <motion.div 
+        className="text-center mb-16"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
         <h2 className="text-3xl font-bold tracking-tight text-zinc-900">赋能各行各业</h2>
         <p className="mt-4 text-zinc-500">成功案例覆盖多种车辆与物联网应用场景。</p>
-      </div>
+      </motion.div>
 
-      <div className="relative px-2">
+      <motion.div 
+        className="relative px-2"
+        initial={{ opacity: 0, scale: 0.98 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
         <Slider {...settings} className="case-studies-slider">
           {cases.map((item, i) => (
             <div key={i} className="px-3 pb-8">
@@ -128,7 +141,7 @@ export function CaseStudies() {
             </div>
           ))}
         </Slider>
-      </div>
+      </motion.div>
       
       {/* Add custom styling for slick dots to match Fumadocs minimal flat style */}
       <style>{`
