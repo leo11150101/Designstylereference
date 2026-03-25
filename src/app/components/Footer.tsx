@@ -1,16 +1,17 @@
 import { Command } from 'lucide-react';
+import { Link } from 'react-router';
 
 export function Footer() {
   return (
     <footer className="border-t border-zinc-200 bg-white py-16">
       <div className="mx-auto max-w-7xl px-6 grid grid-cols-2 md:grid-cols-6 gap-8 mb-12">
         <div className="col-span-2 md:col-span-2">
-          <a href="#" className="flex items-center gap-2 font-bold text-zinc-900 mb-4">
+          <Link to="/" className="flex items-center gap-2 font-bold text-zinc-900 mb-4">
             <div className="flex h-6 w-6 items-center justify-center rounded bg-zinc-900 text-white">
               <Command className="h-4 w-4" />
             </div>
             <span>麦谷智云</span>
-          </a>
+          </Link>
           <p className="text-sm text-zinc-500 max-w-xs">
             万物互联，让世界更美好。<br />提供一站式车载双应用服务与端到端解决方案。
           </p>
@@ -18,10 +19,10 @@ export function Footer() {
         <div>
           <h4 className="font-semibold text-zinc-900 mb-4 text-sm">产品</h4>
           <ul className="space-y-3 text-sm text-zinc-500">
-            <li><a href="#" className="hover:text-[#2d8cf0] transition-colors">MLink OS</a></li>
-            <li><a href="#" className="hover:text-[#2d8cf0] transition-colors">实时音视频</a></li>
-            <li><a href="#" className="hover:text-[#2d8cf0] transition-colors">AI 算法</a></li>
-            <li><a href="#" className="hover:text-[#2d8cf0] transition-colors">增值云服务</a></li>
+            <li><Link to="/mlink-os" className="hover:text-[#2d8cf0] transition-colors">MLink OS</Link></li>
+            <li><Link to="/mrts" className="hover:text-[#2d8cf0] transition-colors">实时流媒体 MRTS</Link></li>
+            <li><Link to="/location-cloud" className="hover:text-[#2d8cf0] transition-colors">位置云服务 LBS</Link></li>
+            <li><Link to="/ai-algorithm" className="hover:text-[#2d8cf0] transition-colors">AI 视觉算法</Link></li>
           </ul>
         </div>
         <div>
