@@ -10,10 +10,7 @@ import { Footer } from './components/Footer';
 import { MLinkOSPage } from './components/MLinkOSPage';
 import { MRTSPage } from './components/MRTSPage';
 import { LocationCloudPage } from './components/LocationCloudPage';
-
-import { ADASPage } from './components/ADASPage';
-import { DSMPage } from './components/DSMPage';
-import { DataMaskingPage } from './components/DataMaskingPage';
+import { CloudServicesPage } from './components/CloudServicesPage';
 import { AIAlgorithmPage } from './components/AIAlgorithmPage';
 
 function Root() {
@@ -51,53 +48,78 @@ const router = createBrowserRouter([
         Component: Home,
       },
       {
-        path: "mlink-os",
+        path: "/mlink-os",
         Component: MLinkOSPage,
       },
       {
-        path: "mlink",
+        path: "/mlink",
         Component: MLinkOSPage,
       },
       {
-        path: "mlinkos",
+        path: "/mlinkos",
         Component: MLinkOSPage,
       },
       {
-        path: "mrts",
+        path: "/mrts",
         Component: MRTSPage,
       },
       {
-        path: "location-cloud",
+        path: "/location-cloud",
         Component: LocationCloudPage,
       },
       {
-        path: "ai-algorithm",
+        path: "/cloud-services",
+        Component: CloudServicesPage,
+      },
+      {
+        path: "/event-storage",
+        Component: CloudServicesPage,
+      },
+      {
+        path: "/cloud-drive",
+        Component: CloudServicesPage,
+      },
+      {
+        path: "/cloud-favorites",
+        Component: CloudServicesPage,
+      },
+      {
+        path: "/ai-algorithm",
         Component: AIAlgorithmPage,
       },
       {
-        path: "ai-algorithm/data-masking",
-        Component: DataMaskingPage,
+        path: "/ai-algorithm/data-masking",
+        Component: AIAlgorithmPage,
       },
       {
-        path: "ai-algorithm/dsm",
-        Component: DSMPage,
+        path: "/ai-algorithm/dsm",
+        Component: AIAlgorithmPage,
       },
       {
-        path: "ai-algorithm/adas",
-        Component: ADASPage,
+        path: "/ai-algorithm/adas",
+        Component: AIAlgorithmPage,
       },
       {
-        path: "data-masking",
-        Component: DataMaskingPage,
+        path: "/data-masking",
+        Component: AIAlgorithmPage,
       },
       {
-        path: "dsm",
-        Component: DSMPage,
+        path: "/dsm",
+        Component: AIAlgorithmPage,
       },
       {
-        path: "adas",
-        Component: ADASPage,
+        path: "/adas",
+        Component: AIAlgorithmPage,
       },
+      {
+        path: "*",
+        Component: () => (
+          <div className="py-32 text-center">
+            <h1 className="text-4xl font-black mb-4">404</h1>
+            <p className="text-zinc-500">页面未找到</p>
+          </div>
+        )
+      }
     ],
   },
 ]);

@@ -10,6 +10,10 @@ import {
   Bell,
   Box,
   ArrowRight,
+  ShieldCheck,
+  Eye,
+  Activity,
+  MapPin
 } from "lucide-react";
 import { motion } from "motion/react";
 import { Link } from "react-router";
@@ -17,8 +21,9 @@ import { Link } from "react-router";
 import imgMlinkOs from "figma:asset/fd9d4b0f4851bda2cd7b68be3a207e2403024c95.png";
 import imgMrts from "figma:asset/45808d870a467bbe152a69c708e0f6e2d6780f38.png";
 import imgData from "figma:asset/57dacfb955a5f3a978b2d14c89a0bbca81965b82.png";
-import imgLocationCloud from "figma:asset/71f46bb8aa3b7741d045d4bb44168524fcfb3138.png"; // Using a placeholder for location cloud if not specified
+import imgLocationCloud from "figma:asset/71f46bb8aa3b7741d045d4bb44168524fcfb3138.png"; 
 
+// Complete rewrite of ProductCatalog to ensure fresh state and imports
 export function ProductCatalog() {
   const capabilities = [
     {
@@ -80,7 +85,7 @@ export function ProductCatalog() {
       id: "ai",
       title: "AI 视觉算法",
       tagline: "智能化、精准的视觉识别与隐私保护方案",
-      image: imgLocationCloud, // Using this as it looks like AI scene
+      image: imgLocationCloud, 
       link: "/ai-algorithm",
       features: [
         {
@@ -220,11 +225,11 @@ export function ProductCatalog() {
             >
               <div className="relative group">
                 <div className="absolute -inset-4 bg-zinc-100/50 rounded-3xl -z-10 group-hover:bg-[#2d8cf0]/5 transition-colors duration-500"></div>
-                <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition-all duration-500 group-hover:shadow-xl group-hover:border-zinc-300">
+                <div className="aspect-[16/10] overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition-all duration-500 group-hover:shadow-xl group-hover:border-zinc-300">
                   <img
                     src={cap.image}
                     alt={cap.title}
-                    className="w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-105"
+                    className="w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-105"
                   />
                   <div className="absolute bottom-4 right-4 bg-white/80 backdrop-blur-md border border-white/40 px-3 py-1.5 rounded-full shadow-sm">
                     <span className="text-[10px] font-bold text-[#2d8cf0] uppercase tracking-wider">

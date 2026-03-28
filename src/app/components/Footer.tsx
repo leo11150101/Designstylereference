@@ -22,6 +22,7 @@ export function Footer() {
             <li><Link to="/mlink-os" className="hover:text-[#2d8cf0] transition-colors">MLink OS</Link></li>
             <li><Link to="/mrts" className="hover:text-[#2d8cf0] transition-colors">实时流媒体 MRTS</Link></li>
             <li><Link to="/location-cloud" className="hover:text-[#2d8cf0] transition-colors">位置云服务 LBS</Link></li>
+            <li><Link to="/cloud-services" className="hover:text-[#2d8cf0] transition-colors">增值云服务 VAS</Link></li>
             <li><Link to="/ai-algorithm" className="hover:text-[#2d8cf0] transition-colors">AI 视觉算法</Link></li>
           </ul>
         </div>

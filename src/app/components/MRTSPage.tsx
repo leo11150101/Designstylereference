@@ -131,30 +131,125 @@ export function MRTSPage() {
 
           {/* Visualization Placeholder */}
           <motion.div 
-            className="mt-20 max-w-5xl mx-auto p-4 rounded-[2.5rem] bg-zinc-50 border border-zinc-100 shadow-2xl overflow-hidden"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
+            className="mt-20 max-w-6xl mx-auto p-4 rounded-[3.5rem] bg-zinc-50 border border-zinc-200/50 shadow-sm"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            <div className="aspect-video rounded-[2rem] bg-zinc-900 flex flex-col items-center justify-center text-white overflow-hidden relative">
-              <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(#2d8cf0 1px, transparent 1px), linear-gradient(90deg, #2d8cf0 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
-              <div className="relative z-10 flex flex-col items-center gap-6">
-                <div className="w-20 h-20 rounded-full border-4 border-[#2d8cf0] border-t-transparent animate-spin flex items-center justify-center">
-                  <PlayCircle className="w-10 h-10 text-[#2d8cf0]" />
+            <div className="bg-zinc-950 rounded-[3rem] overflow-hidden flex flex-col lg:flex-row min-h-[500px] relative">
+              {/* Left: Video/Radar Canvas Section */}
+              <div className="flex-[2] relative p-10 flex flex-col border-b lg:border-b-0 lg:border-r border-white/5">
+                {/* Tech Grid Overlay */}
+                <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'linear-gradient(#2d8cf0 1px, transparent 1px), linear-gradient(90deg, #2d8cf0 1px, transparent 1px)', backgroundSize: '48px 48px' }}></div>
+                
+                {/* Header Info */}
+                <div className="relative z-10 flex justify-between items-start mb-auto">
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                      <span className="text-[10px] font-black text-white uppercase tracking-[0.2em]">MRTS 核心 // 实时流媒体</span>
+                    </div>
+                    <p className="text-[10px] text-white/30 font-mono">节点: 华南集群_04 // RTC模式</p>
+                  </div>
+                  <div className="flex gap-6 items-center">
+                    <div className="text-right">
+                      <div className="text-[10px] text-white/30 font-bold uppercase mb-1">帧率</div>
+                      <div className="text-white font-mono text-xs">60.0</div>
+                    </div>
+                    <div className="w-px h-6 bg-white/10" />
+                    <div className="text-right">
+                      <div className="text-[10px] text-white/30 font-bold uppercase mb-1">延时</div>
+                      <div className="text-[#2d8cf0] font-mono text-xs">82ms</div>
+                    </div>
+                  </div>
                 </div>
-                <div className="text-center">
-                  <div className="text-xl font-bold tracking-widest uppercase">流媒体核心已就绪</div>
-                  <div className="text-xs text-[#2d8cf0] mt-2 font-mono uppercase">延时: 0.82s | 码率: 4.5Mbps | 状态: 极佳</div>
+
+                {/* Central Visual: Pulse/Radar */}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <div className="relative">
+                    <motion.div 
+                      animate={{ scale: [1, 2.5], opacity: [0.3, 0] }}
+                      transition={{ duration: 4, repeat: Infinity, ease: "easeOut" }}
+                      className="absolute inset-0 border border-[#2d8cf0]/20 rounded-full"
+                    />
+                    <motion.div 
+                      animate={{ scale: [1, 1.8], opacity: [0.2, 0] }}
+                      transition={{ duration: 4, delay: 1.5, repeat: Infinity, ease: "easeOut" }}
+                      className="absolute inset-0 border border-[#2d8cf0]/20 rounded-full"
+                    />
+                    <div className="relative z-10 w-32 h-32 rounded-full bg-zinc-900 border border-[#2d8cf0]/20 flex items-center justify-center shadow-2xl shadow-[#2d8cf0]/20">
+                      <Video className="w-10 h-10 text-[#2d8cf0]" />
+                      <motion.div 
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                        className="absolute inset-0 rounded-full border-t border-[#2d8cf0]/40"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Footer Controls/Status */}
+                <div className="relative z-10 flex justify-between items-end mt-auto">
+                  <div className="flex gap-8">
+                    <div className="space-y-1 text-left">
+                      <div className="text-[10px] text-white/30 font-bold uppercase">码率</div>
+                      <div className="text-white font-mono text-sm tracking-tight">4.52 <span className="text-[8px] opacity-40">Mbps</span></div>
+                    </div>
+                    <div className="space-y-1 text-left">
+                      <div className="text-[10px] text-white/30 font-bold uppercase">编码格式</div>
+                      <div className="text-white font-mono text-sm tracking-tight">H.265 <span className="text-[8px] opacity-40">HEVC</span></div>
+                    </div>
+                  </div>
+                  <div className="flex gap-2 p-1 bg-white/5 rounded-xl border border-white/10">
+                    <div className="w-10 h-7 bg-[#2d8cf0] rounded-lg flex items-center justify-center shadow-lg shadow-[#2d8cf0]/20">
+                      <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                    </div>
+                    <div className="w-10 h-7 hover:bg-white/10 rounded-lg flex items-center justify-center transition-colors">
+                      <div className="w-3 h-3 border-2 border-white/20 rounded-sm" />
+                    </div>
+                  </div>
                 </div>
               </div>
-              {/* Floating UI Elements */}
-              <div className="absolute top-10 left-10 p-4 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 text-left">
-                <div className="text-[10px] opacity-40 uppercase mb-2">传输协议</div>
-                <div className="text-sm font-bold">WebRTC (标准版)</div>
-              </div>
-              <div className="absolute bottom-10 right-10 p-4 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 text-right">
-                <div className="text-[10px] opacity-40 uppercase mb-2">运行时间</div>
-                <div className="text-sm font-bold">99.99% 服务保障</div>
+
+              {/* Right: Telemetry Panel */}
+              <div className="lg:w-80 bg-zinc-900/50 p-10 flex flex-col justify-between">
+                <div>
+                  <h4 className="text-[10px] font-black text-white/50 uppercase tracking-[0.3em] mb-12 flex items-center gap-2">
+                    <Activity className="w-4 h-4 text-[#2d8cf0]" /> 引擎数据分析
+                  </h4>
+
+                  <div className="space-y-6">
+                    {[
+                      { label: '信号强度', value: '极佳', color: 'text-emerald-500' },
+                      { label: '加密协议', value: 'TLS 1.3', color: 'text-[#2d8cf0]' },
+                      { label: '抖动', value: '2.4ms', color: 'text-white' },
+                      { label: '丢包率', value: '0.00%', color: 'text-emerald-500' },
+                    ].map((item, idx) => (
+                      <div key={idx} className="flex justify-between items-center group">
+                        <span className="text-[10px] text-white/40 font-bold uppercase group-hover:text-white/60 transition-colors">{item.label}</span>
+                        <span className={`text-xs font-mono font-bold ${item.color}`}>{item.value}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-12 pt-10 border-t border-white/5 space-y-5">
+                    <div className="flex justify-between items-end">
+                      <span className="text-[10px] text-white/30 font-bold uppercase">缓存水位线</span>
+                      <span className="text-[10px] text-[#2d8cf0] font-mono tracking-widest">14.2%</span>
+                    </div>
+                    <div className="h-1 bg-white/5 rounded-full overflow-hidden">
+                      <motion.div 
+                        initial={{ width: 0 }}
+                        animate={{ width: '14.2%' }}
+                        className="h-full bg-[#2d8cf0]"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <button className="mt-12 w-full py-5 bg-[#2d8cf0] text-white text-[10px] font-black rounded-2xl uppercase tracking-[0.3em] shadow-2xl shadow-[#2d8cf0]/20 hover:bg-[#1a76d2] hover:-translate-y-1 transition-all active:scale-95 flex items-center justify-center gap-3">
+                  <PlayCircle className="w-5 h-5" /> 同步流媒体
+                </button>
               </div>
             </div>
           </motion.div>

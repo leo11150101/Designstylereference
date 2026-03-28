@@ -1,15 +1,19 @@
 import { Search, Github, Sun, Command, ChevronDown } from 'lucide-react';
 import { Link, useLocation } from 'react-router';
 
+// Refined Header with fixed reference errors and navigation logic
 export function Header() {
   const location = useLocation();
-  const isProductActive = isMLink || 
-    location.pathname === '/mrts' || 
-    location.pathname === '/location-cloud' || 
-    location.pathname.startsWith('/ai-algorithm') ||
-    location.pathname === '/data-masking' ||
-    location.pathname === '/dsm' ||
-    location.pathname === '/adas';
+  const currentPath = location.pathname;
+  
+  const isProductActive = currentPath === '/mlink-os' || 
+    currentPath === '/mrts' || 
+    currentPath === '/location-cloud' || 
+    currentPath === '/cloud-services' ||
+    currentPath.startsWith('/ai-algorithm') ||
+    currentPath === '/data-masking' ||
+    currentPath === '/dsm' ||
+    currentPath === '/adas';
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-zinc-200 bg-white/90 backdrop-blur-sm">
@@ -24,11 +28,11 @@ export function Header() {
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-zinc-500">
             <Link 
               to="/" 
-              className={`${!isProductActive && location.pathname === '/' ? 'text-[#2d8cf0]' : 'hover:text-[#2d8cf0] transition-colors'}`}
+              className={`${!isProductActive && currentPath === '/' ? 'text-[#2d8cf0]' : 'hover:text-[#2d8cf0] transition-colors'}`}
             >
               开放平台
             </Link>
-                        <div className="relative group flex items-center gap-1 cursor-default hover:text-[#2d8cf0] transition-colors">
+            <div className="relative group flex items-center gap-1 cursor-default hover:text-[#2d8cf0] transition-colors">
               <span className={`${isProductActive ? 'text-[#2d8cf0]' : ''}`}>产品介绍</span>
               <ChevronDown className="w-3 h-3 opacity-50 group-hover:rotate-180 transition-transform duration-300" />
               
