@@ -17,10 +17,6 @@ import {
 import { motion } from 'motion/react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
-import imgEventStorage from "figma:asset/059e1d32f65a7119b3c7a9f1aa5a847f0ccce075.png";
-import imgCloudDrive from "figma:asset/92944e55ea9dbdcc964b46d624483d7a16d88448.png";
-import imgCloudFavorites from "figma:asset/6d4873586c6b958b20503532552306c058e18e75.png";
-
 export function CloudServicesPage() {
   const services = [
     {
@@ -28,7 +24,7 @@ export function CloudServicesPage() {
       title: "事件云存储",
       tagline: "Event-Triggered Cloud Backup",
       desc: "针对行车过程中的碰撞、急刹或紧急报警等关键事件，系统自动将相关的视频和图片实时上传至云端，确保核心证据永久留存，不受设备损坏或丢失影响。",
-      image: imgEventStorage,
+      image: "https://images.unsplash.com/photo-1515018993613-681b765562d1?auto=format&fit=crop&q=80&w=1080",
       icon: <Video className="w-6 h-6" />,
       highlights: [
         { icon: <CloudUpload className="w-5 h-5" />, title: "极速上传", desc: "事件触发后毫秒级启动上传任务。" },
@@ -46,7 +42,7 @@ export function CloudServicesPage() {
       title: "云盘服务",
       tagline: "Secure File Storage & Sync",
       desc: "为车企及行业客户提供定制化的云端文件管理方案。支持海量驾驶记录、轨迹文件及车载多媒体资料的存储，通过多端同步技术，实现手机、车机、PC三端数据互通。",
-      image: imgCloudDrive,
+      image: "https://images.unsplash.com/photo-1759752394755-1241472b589d?auto=format&fit=crop&q=80&w=1080",
       icon: <HardDrive className="w-6 h-6" />,
       highlights: [
         { icon: <RefreshCw className="w-5 h-5" />, title: "无缝同步", desc: "跨设备文件实时更新，体验连贯。" },
@@ -64,7 +60,7 @@ export function CloudServicesPage() {
       title: "云收藏",
       tagline: "Unified Metadata Management",
       desc: "一站式解决海量业务数据的标记与分类需求。无论是感兴趣的地点（POI）、特殊的驾驶行为片段，还是重要的异常告警，均可一键收藏至云端，建立个性化知识库。",
-      image: imgCloudFavorites,
+      image: "https://images.unsplash.com/photo-1674683685332-894bed153f19?auto=format&fit=crop&q=80&w=1080",
       icon: <Bookmark className="w-6 h-6" />,
       highlights: [
         { icon: <LayoutGrid className="w-5 h-5" />, title: "多维标签", desc: "支持自定义标签体系进行分类管理。" },
@@ -110,7 +106,7 @@ export function CloudServicesPage() {
       {/* Services List */}
       <div className="divide-y divide-zinc-100">
         {services.map((service, index) => (
-          <section key={service.id} id={service.id} className="py-24 scroll-mt-24 overflow-hidden">
+          <section key={service.id} id={service.id} className={`py-24 scroll-mt-24 overflow-hidden border-b border-zinc-100 ${index % 2 === 1 ? 'bg-zinc-50' : 'bg-white'}`}>
             <div className="mx-auto max-w-7xl px-6">
               <div className={`flex flex-col lg:flex-row gap-20 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
                 {/* Visual Representation */}

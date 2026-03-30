@@ -30,8 +30,6 @@ import {
 import { motion } from 'motion/react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
-import imgDataPushHero from 'figma:asset/6592cba3b51e09647d7cc623dd4764e0990e03f0.png';
-
 export function LocationCloudPage() {
   const engineStats = [
     { label: '并发接入', value: '10M+', sub: '百万级高并发承载' },
@@ -145,7 +143,7 @@ export function LocationCloudPage() {
       </section>
 
       {/* 2. Stats Bar */}
-      <section className="py-20 bg-[#fafafa] border-y border-zinc-100">
+      <section className="py-20 bg-zinc-50 border-y border-zinc-100">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {engineStats.map((s, i) => (
@@ -192,7 +190,7 @@ export function LocationCloudPage() {
       </section>
 
       {/* 4. Data Subscription & Push (New Integrated Section) */}
-      <section className="py-24 bg-[#fafafa] border-y border-zinc-100 overflow-hidden">
+      <section className="py-24 bg-zinc-50 border-y border-zinc-100 overflow-hidden">
         <div className="mx-auto max-w-7xl px-6">
           <div className="flex flex-col lg:flex-row items-center gap-20 mb-24">
             <div className="flex-1 space-y-8">
@@ -225,7 +223,7 @@ export function LocationCloudPage() {
                 viewport={{ once: true }}
               >
                 <div className="aspect-[16/11] rounded-[2.8rem] overflow-hidden">
-                  <ImageWithFallback src={imgDataPushHero} alt="Data Push" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+                  <ImageWithFallback src="https://images.unsplash.com/photo-1674683685332-894bed153f19?auto=format&fit=crop&q=80&w=1080" alt="Data Push" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                 </div>
               </motion.div>
             </div>
@@ -281,7 +279,7 @@ export function LocationCloudPage() {
       </section>
 
       {/* 6. Developer Experience: API Preview */}
-      <section className="py-24 bg-zinc-900 text-white overflow-hidden">
+      <section className="py-24 bg-zinc-950 text-white overflow-hidden">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div className="space-y-10">

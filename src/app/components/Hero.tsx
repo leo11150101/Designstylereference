@@ -8,15 +8,15 @@ export function Hero() {
   const [bgIndex, setBgIndex] = useState(0);
 
   const carouselImages = [
-    "https://images.unsplash.com/photo-1758411898502-013b0cd3421c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb25uZWN0ZWQlMjBjYXIlMjBkYXNoYm9hcmQlMjBtb2Rlcm58ZW58MXx8fHwxNzc0MjUxODI1fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "https://images.unsplash.com/photo-1768907813740-e82a02ba40ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzbWFydCUyMGNhciUyMGRpZ2l0YWwlMjBkYXNoYm9hcmQlMjB1aXxlbnwxfHx8fDE3NzQyNTUwNzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "https://images.unsplash.com/photo-1773901211515-098f765b1acf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmdXR1cmlzdGljJTIwY2l0eSUyMHRyYWZmaWMlMjBkYXRoJTIwc2NyZWVufGVufDF8fHx8MTc3NDI1NTA3MXww&ixlib=rb-4.1.0&q=80&w=1080"
+    "https://images.unsplash.com/photo-1634743556192-d19f0c69ff3a?auto=format&fit=crop&q=80&w=1080",
+    "https://images.unsplash.com/photo-1581088657139-d5a5cce14c87?auto=format&fit=crop&q=80&w=1080",
+    "https://images.unsplash.com/photo-1674683685332-894bed153f19?auto=format&fit=crop&q=80&w=1080"
   ];
 
   const bgImages = [
-    "https://images.unsplash.com/photo-1713857297379-6fc26e70f581?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbnRlcm5ldCUyMG9mJTIwdGhpbmdzJTIwbmV0d29yayUyMGNvbm5lY3Rpb24lMjBsaWdodHxlbnwxfHx8fDE3NzQyNTU5OTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-    "https://images.unsplash.com/photo-1451187580459-43490279c0fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    "https://images.unsplash.com/photo-1515018993613-681b765562d1?auto=format&fit=crop&q=80&w=1080",
+    "https://images.unsplash.com/photo-1720036236694-d0a231c52563?auto=format&fit=crop&q=80&w=1080",
+    "https://images.unsplash.com/photo-1562811950-41d4a4944a4b?auto=format&fit=crop&q=80&w=1080",
   ];
 
   useEffect(() => {

@@ -31,10 +31,6 @@ import {
 import { motion } from 'motion/react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
-import imgDataMasking from "figma:asset/71f46bb8aa3b7741d045d4bb44168524fcfb3138.png";
-import imgDSM from "figma:asset/3640923d63c694ccc41113de4ad81bdf24c9766b.png";
-import imgADAS from "figma:asset/d0398f3c47d9d3f872c49b96619b5748e41bb99a.png";
-
 export function AIAlgorithmPage() {
   const sections = [
     {
@@ -42,7 +38,7 @@ export function AIAlgorithmPage() {
       title: "数据脱敏算法",
       tagline: "智能化处理图片和视频数据中的个人信息",
       desc: "通过深度学习算法，实现对人脸、车牌等隐私数据的秒级遮蔽，符合 GDPR 等合规性要求。",
-      image: imgDataMasking,
+      image: "https://images.unsplash.com/photo-1678466272132-ded8f248f172?auto=format&fit=crop&q=80&w=1080",
       icon: <ShieldCheck className="w-6 h-6" />,
       advantages: [
         { icon: <Cloud className="w-5 h-5" />, title: "云端接口", desc: "支持多种开发方式接入。" },
@@ -59,7 +55,7 @@ export function AIAlgorithmPage() {
       title: "驾驶员状态监测 (DSM)",
       tagline: "全方位的实时监控与行为预警",
       desc: "利用 AI 视觉算法实时监控驾驶员疲劳、抽烟、打电话等危险驾驶行为，保障行车安全。",
-      image: imgDSM,
+      image: "https://images.unsplash.com/photo-1744199770431-8048f20dedf8?auto=format&fit=crop&q=80&w=1080",
       icon: <Eye className="w-6 h-6" />,
       advantages: [
         { icon: <Mic className="w-5 h-5" />, title: "语音提示", desc: "实时违规行为语音反馈。" },
@@ -78,7 +74,7 @@ export function AIAlgorithmPage() {
       title: "高级辅助驾驶 (ADAS)",
       tagline: "智能行车守护系统",
       desc: "提供前向碰撞预警、车道偏离提醒等功能，集成多种识别算法，降低驾驶强度。",
-      image: imgADAS,
+      image: "https://images.unsplash.com/photo-1684141402511-3666ae53f25f?auto=format&fit=crop&q=80&w=1080",
       icon: <Activity className="w-6 h-6" />,
       advantages: [
         { icon: <Navigation className="w-5 h-5" />, title: "车道监测", desc: "实时监控非主观车道偏离。" },
@@ -122,7 +118,7 @@ export function AIAlgorithmPage() {
       {/* Algorithm Sections */}
       <div className="divide-y divide-zinc-100">
         {sections.map((section, index) => (
-          <section key={section.id} id={section.id} className="py-24 scroll-mt-24">
+          <section key={section.id} id={section.id} className={`py-24 scroll-mt-24 border-b border-zinc-100 ${index % 2 === 1 ? 'bg-zinc-50' : 'bg-white'}`}>
             <div className="mx-auto max-w-7xl px-6">
               <div className={`flex flex-col lg:flex-row gap-16 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
                 {/* Visual */}

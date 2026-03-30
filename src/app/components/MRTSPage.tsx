@@ -257,7 +257,7 @@ export function MRTSPage() {
       </section>
 
       {/* Advantage Section */}
-      <section className="py-24 bg-[#fafafa]">
+      <section className="py-24 bg-zinc-50 border-y border-zinc-100">
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center mb-20">
             <h2 className="text-4xl font-bold mb-6">产品优势</h2>
@@ -268,13 +268,13 @@ export function MRTSPage() {
             {advantages.map((adv, i) => (
               <motion.div 
                 key={i} 
-                className="group p-8 rounded-[2rem] bg-white border border-zinc-100 hover:border-[#2d8cf0]/30 hover:shadow-2xl hover:shadow-[#2d8cf0]/10 transition-all duration-500"
+                className="group p-8 rounded-[2rem] bg-white border border-zinc-200/50 hover:border-[#2d8cf0]/30 hover:shadow-2xl hover:shadow-[#2d8cf0]/10 transition-all duration-500"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
-                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#2d8cf0]/5 text-[#2d8cf0] group-hover:bg-[#2d8cf0] group-hover:text-white transition-all duration-500">
+                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-zinc-50 text-[#2d8cf0] group-hover:bg-[#2d8cf0] group-hover:text-white transition-all duration-500">
                   {adv.icon}
                 </div>
                 <h3 className="text-xl font-bold mb-3">{adv.title}</h3>
@@ -302,7 +302,7 @@ export function MRTSPage() {
             {scenarios.map((s, i) => (
               <motion.div 
                 key={i} 
-                className="group rounded-3xl overflow-hidden border border-zinc-100 hover:border-[#2d8cf0]/30 transition-all shadow-sm hover:shadow-2xl"
+                className="group rounded-3xl overflow-hidden border border-zinc-200/50 hover:border-[#2d8cf0]/30 transition-all shadow-sm hover:shadow-2xl"
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -328,7 +328,7 @@ export function MRTSPage() {
       </section>
 
       {/* Feature List - Modular Design */}
-      <section className="py-24 bg-zinc-900 text-white overflow-hidden">
+      <section className="py-24 bg-zinc-950 text-white overflow-hidden">
         <div className="mx-auto max-w-7xl px-6 relative">
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             <div className="flex-1">
@@ -374,7 +374,7 @@ export function MRTSPage() {
                 </div>
                 <div className="relative z-10">
                   <div className="text-4xl font-black mb-2">99.9%</div>
-                  <div className="text-xs opacity-40 uppercase">可靠性指标指标</div>
+                  <div className="text-xs opacity-40 uppercase">可靠性指标</div>
                 </div>
               </div>
             </div>
@@ -414,7 +414,7 @@ export function MRTSPage() {
             ].map((item, i) => (
               <motion.div 
                 key={i}
-                className="p-8 rounded-3xl bg-zinc-50 border border-zinc-100 hover:bg-white hover:border-[#2d8cf0]/20 hover:shadow-xl transition-all duration-300"
+                className="p-8 rounded-3xl bg-zinc-50 border border-zinc-200/50 hover:bg-white hover:border-[#2d8cf0]/20 hover:shadow-xl transition-all duration-300"
                 whileHover={{ y: -5 }}
               >
                 <div className="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center text-[#2d8cf0] mb-6">
@@ -429,15 +429,15 @@ export function MRTSPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 bg-[#2d8cf0] relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
+      <section className="py-24 bg-zinc-950 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#2d8cf0]/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-black/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl"></div>
         
         <div className="mx-auto max-w-5xl px-6 text-center text-white relative z-10 selection:bg-white selection:text-[#2d8cf0]">
-          <h2 className="text-4xl md:text-5xl font-black mb-8 leading-tight">即刻接入 MRTS 流媒体引擎</h2>
+          <h2 className="text-4xl md:text-5xl font-black mb-8 leading-tight">即刻接入 <span className="text-[#2d8cf0]">MRTS 流媒体引擎</span></h2>
           <p className="text-xl opacity-80 mb-12 max-w-2xl mx-auto">无论是在线直播、远程监控还是双向语音，MRTS 都能为您提供稳定可靠的技术支持。</p>
           <div className="flex flex-wrap justify-center gap-6">
-            <button className="px-10 py-5 bg-white text-[#2d8cf0] font-black rounded-2xl shadow-2xl hover:bg-zinc-100 hover:-translate-y-1 transition-all">
+            <button className="px-10 py-5 bg-[#2d8cf0] text-white font-black rounded-2xl shadow-2xl hover:bg-[#2074d6] hover:-translate-y-1 transition-all">
               联系销售定制方案
             </button>
             <button className="px-10 py-5 bg-transparent text-white border-2 border-white/30 font-black rounded-2xl hover:bg-white/10 transition-all">

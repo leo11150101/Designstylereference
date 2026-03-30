@@ -30,9 +30,6 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { useState } from 'react';
 
-import imgCloudIntegrationHero from "figma:asset/f55f113bdcf1b014fe84fc2068764bcfdbf27dcf.png";
-import imgDeviceIntegrationHero from "figma:asset/3d32dbf053243759d0efc09c7f12d2a197f62a38.png";
-
 export function MLinkOSPage() {
   const [activeIntegration, setActiveIntegration] = useState<'device' | 'cloud'>('device');
 
@@ -85,7 +82,7 @@ export function MLinkOSPage() {
     title: "部标设备接入",
     tagline: "Standard Device Protocol Integration",
     desc: "支持部标 JT/T808、JT/T1078、809 等标准协议的高效接入。为各类智能硬件提供稳定的上云通道，实现设备全生命周期管理。",
-    heroImg: imgDeviceIntegrationHero,
+    heroImg: "https://images.unsplash.com/photo-1766561994067-dbd575e1cff2?auto=format&fit=crop&q=80&w=1080",
     advantages: [
       { icon: <ShieldCheck className="w-5 h-5" />, title: "功能全量", desc: "完整覆盖部标协议所有核心功能与扩展。" },
       { icon: <Maximize className="w-5 h-5" />, title: "扩展方便", desc: "支持自定义协议私有扩展与动态下发。" },
@@ -106,7 +103,7 @@ export function MLinkOSPage() {
     title: "云云接入",
     tagline: "Cloud-to-Cloud Platform Interconnect",
     desc: "通过平台与平台之间的对接，实现业务能力的深度打通。无需设备直连，通过 API 快速获取并集成第三方平台能力。",
-    heroImg: imgCloudIntegrationHero,
+    heroImg: "https://images.unsplash.com/photo-1581088657139-d5a5cce14c87?auto=format&fit=crop&q=80&w=1080",
     advantages: [
       { icon: <Maximize className="w-5 h-5" />, title: "平台功能扩展", desc: "基于麦谷云丰富的功能组件，快速扩展既有平台能力。" },
       { icon: <Zap className="w-5 h-5" />, title: "平台性能扩展", desc: "依托麦谷分布式存储与计算，分担既有平台压力。" },
@@ -225,7 +222,7 @@ export function MLinkOSPage() {
       </section>
 
       {/* 2. Original Product Advantages (Bento Grid) */}
-      <section className="py-24 bg-[#fafafa] border-y border-zinc-100">
+      <section className="py-24 bg-zinc-50 border-y border-zinc-100">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-16 text-center">
             <h2 className="text-3xl font-black text-zinc-900 mb-4 tracking-tight">更进一步的产品优势</h2>
@@ -342,9 +339,9 @@ export function MLinkOSPage() {
       </section>
 
       {/* 4. Original Tech Stack (Layered Visualization) */}
-      <section className="py-24 bg-zinc-900 text-white overflow-hidden relative">
+      <section className="py-24 bg-zinc-950 text-white overflow-hidden relative">
         <div className="absolute inset-0 opacity-10 pointer-events-none">
-          <ImageWithFallback src="https://images.unsplash.com/photo-1772258986603-7256a0b0efe8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="background" className="w-full h-full object-cover" />
+          <ImageWithFallback src="https://images.unsplash.com/photo-1720036236694-d0a231c52563?auto=format&fit=crop&q=80&w=1080" alt="background" className="w-full h-full object-cover" />
         </div>
         
         <div className="mx-auto max-w-7xl px-6 relative z-10">
@@ -407,14 +404,14 @@ export function MLinkOSPage() {
       </section>
 
       {/* 5. Original Core Features Grid */}
-      <section className="py-24 bg-white border-b border-zinc-100">
+      <section className="py-24 bg-zinc-50 border-y border-zinc-100">
         <div className="mx-auto max-w-7xl px-6 text-center">
           <h2 className="text-3xl font-black text-zinc-900 mb-20 tracking-tight">全场景原子化能力</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {osFeatures.map((f, i) => (
               <motion.div 
                 key={i} 
-                className="flex items-start gap-8 p-10 rounded-[2.5rem] bg-[#fafafa] border border-zinc-200/50 group hover:bg-white hover:shadow-xl hover:border-[#2d8cf0]/20 transition-all text-left"
+                className="flex items-start gap-8 p-10 rounded-[2.5rem] bg-zinc-50 border border-zinc-200/50 group hover:bg-white hover:shadow-xl hover:border-[#2d8cf0]/20 transition-all text-left"
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
