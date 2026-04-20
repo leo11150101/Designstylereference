@@ -122,57 +122,7 @@ export function Hero() {
         </motion.div>
 
         {/* Mock Dashboard Graphic with Real Image */}
-        <motion.div 
-          className="w-full max-w-5xl rounded-xl border border-zinc-200 bg-white overflow-hidden text-left flex flex-col shadow-sm"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          <div className="flex flex-1 overflow-hidden h-[400px] md:h-[600px] relative bg-zinc-900">
-            <div className="absolute inset-0 bg-black">
-              {carouselImages.map((src, index) => (
-                <div
-                  key={src}
-                  className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                    index === currentImageIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
-                  }`}
-                >
-                  <ImageWithFallback
-                    src={src}
-                    alt={`Carousel Image ${index + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              ))}
-            </div>
-
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
-
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20 pointer-events-none">
-              {carouselImages.map((_, index) => (
-                <span
-                  key={index}
-                  className={`block h-1.5 rounded-full transition-all duration-500 ${
-                    index === currentImageIndex ? 'w-6 bg-white' : 'w-1.5 bg-white/40'
-                  }`}
-                />
-              ))}
-            </div>
-
-            <div className="absolute bottom-6 left-6 right-6 flex gap-4 pointer-events-none">
-              <div className="bg-white/90 backdrop-blur border border-white/20 p-4 rounded-lg shadow-sm w-48 hidden md:block">
-                <div className="text-xs font-semibold text-zinc-500 uppercase tracking-wide mb-1">Vehicle Status</div>
-                <div className="text-lg font-bold text-zinc-900 flex items-center gap-2">
-                  <span className="h-2 w-2 rounded-full bg-green-500"></span> Online
-                </div>
-              </div>
-              <div className="bg-white/90 backdrop-blur border border-white/20 p-4 rounded-lg shadow-sm w-48 hidden md:block">
-                <div className="text-xs font-semibold text-zinc-500 uppercase tracking-wide mb-1">Network</div>
-                <div className="text-lg font-bold text-[#2d8cf0]">5G / MRTS</div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
+        
       </div>
     </section>
   );
