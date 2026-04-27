@@ -183,30 +183,11 @@ export function CloudAccessGraphic() {
     <GraphicFrame title="CLOUD_INTERCONNECT_API">
       <div className="absolute inset-0 flex flex-col items-center justify-center p-8">
         
-        <div className="flex items-center justify-between w-full max-w-lg relative">
+        <div className="relative w-full max-w-md flex items-center justify-between">
           
-          {/* Left: Partner Cloud */}
-          <motion.div 
-            className="flex flex-col items-center gap-4 z-10"
-            whileHover={{ y: -5 }}
-          >
-            <div className="w-20 h-20 rounded-2xl border border-zinc-800 bg-zinc-900/50 backdrop-blur-sm flex items-center justify-center group relative overflow-hidden">
-              <div className="absolute inset-0 bg-zinc-400/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-              <Globe className="w-8 h-8 text-zinc-600" />
-              <div className="absolute -bottom-1 -right-1 w-4 h-4 rounded bg-zinc-800 border border-zinc-700 flex items-center justify-center">
-                <div className="w-1 h-1 rounded-full bg-zinc-500" />
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="text-[9px] font-bold text-zinc-500 uppercase tracking-widest">Partner Platform</div>
-              <div className="text-[7px] text-zinc-700 font-mono mt-1">api.partner-cloud.com</div>
-            </div>
-          </motion.div>
-
-          {/* Center: Exchange Hub */}
-          <div className="flex-1 px-4 relative h-40 flex items-center justify-center">
-            {/* Curved Path SVGs */}
-            <svg className="absolute inset-0 w-full h-full overflow-visible" viewBox="0 0 200 160" preserveAspectRatio="none">
+          {/* Connector SVG - Full Width within max-w-md */}
+          <div className="absolute inset-0 z-0 pointer-events-none">
+            <svg className="w-full h-full overflow-visible" viewBox="0 0 400 160">
               <defs>
                 <linearGradient id="gradBlue" x1="0%" y1="0%" x2="100%" y2="0%">
                   <stop offset="0%" stopColor="transparent" />
@@ -215,9 +196,9 @@ export function CloudAccessGraphic() {
                 </linearGradient>
               </defs>
               
-              {/* Top Path: Partner -> MLink (Clockwise arc) */}
+              {/* Top Path: Partner -> MLink */}
               <motion.path 
-                d="M 10 80 C 40 20, 160 20, 190 80" 
+                d="M 40 80 C 100 20, 300 20, 360 80" 
                 stroke="url(#gradBlue)" 
                 strokeWidth="1.5" 
                 fill="none" 
@@ -227,9 +208,9 @@ export function CloudAccessGraphic() {
                 transition={{ duration: 2, repeat: Infinity }}
               />
               
-              {/* Bottom Path: MLink -> Partner (Counter-clockwise arc) */}
+              {/* Bottom Path: MLink -> Partner */}
               <motion.path 
-                d="M 190 80 C 160 140, 40 140, 10 80" 
+                d="M 360 80 C 300 140, 100 140, 40 80" 
                 stroke="url(#gradBlue)" 
                 strokeWidth="1.5" 
                 fill="none" 
@@ -243,13 +224,12 @@ export function CloudAccessGraphic() {
               <motion.circle
                 r="3"
                 fill="#2d8cf0"
-                filter="blur(1px)"
                 className="shadow-[0_0_10px_#2d8cf0]"
               >
                 <animateMotion 
                   dur="2.5s" 
                   repeatCount="indefinite" 
-                  path="M 10 80 C 40 20, 160 20, 190 80"
+                  path="M 40 80 C 100 20, 300 20, 360 80"
                   calcMode="spline"
                   keySplines="0.42 0 0.58 1"
                 />
@@ -259,46 +239,52 @@ export function CloudAccessGraphic() {
               <motion.circle
                 r="3"
                 fill="#10b981"
-                filter="blur(1px)"
                 className="shadow-[0_0_10px_#10b981]"
               >
                 <animateMotion 
                   dur="2.5s" 
                   begin="1.25s"
                   repeatCount="indefinite" 
-                  path="M 190 80 C 160 140, 40 140, 10 80"
+                  path="M 360 80 C 300 140, 100 140, 40 80"
                   calcMode="spline"
                   keySplines="0.42 0 0.58 1"
                 />
               </motion.circle>
             </svg>
-
-            {/* API Method Tags */}
-            <motion.div 
-              className="absolute top-4 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-full bg-[#2d8cf0]/10 border border-[#2d8cf0]/20 text-[6px] text-[#2d8cf0] font-bold z-20"
-              animate={{ opacity: [0.3, 1, 0.3] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              POST /v1/data/sync
-            </motion.div>
           </div>
 
-          {/* Right: MLink Hub */}
+          {/* Left: Partner Cloud */}
           <motion.div 
-            className="flex flex-col items-center gap-4 z-10"
+            className="flex flex-col items-center gap-2 z-10 w-20"
             whileHover={{ y: -5 }}
           >
-            <div className="w-20 h-20 rounded-2xl border border-[#2d8cf0]/50 bg-[#2d8cf0]/10 backdrop-blur-sm flex items-center justify-center group relative overflow-hidden">
-              <div className="absolute inset-0 bg-[#2d8cf0]/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-              <Share2 className="w-8 h-8 text-[#2d8cf0]" />
-              <div className="absolute -top-1 -left-1 w-6 h-6 rounded-lg bg-[#2d8cf0] flex items-center justify-center shadow-lg shadow-[#2d8cf0]/30 z-20">
-                <Zap className="w-3 h-3 text-white" />
+            <div className="w-16 h-16 rounded-2xl border border-zinc-800 bg-zinc-900 flex items-center justify-center shadow-2xl">
+              <Globe className="w-6 h-6 text-zinc-600" />
+            </div>
+            <span className="text-[8px] font-bold text-zinc-600 uppercase tracking-widest">Partner</span>
+          </motion.div>
+
+          {/* Center Method Tag */}
+          <motion.div 
+            className="z-20 px-2 py-0.5 rounded bg-[#2d8cf0]/10 border border-[#2d8cf0]/20 text-[6px] text-[#2d8cf0] font-bold"
+            animate={{ opacity: [0.5, 1, 0.5] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          >
+            POST /v1/data/sync
+          </motion.div>
+
+          {/* Right: MLink Cloud */}
+          <motion.div 
+            className="flex flex-col items-center gap-2 z-10 w-20"
+            whileHover={{ y: -5 }}
+          >
+            <div className="w-16 h-16 rounded-2xl border border-[#2d8cf0]/50 bg-[#2d8cf0]/10 flex items-center justify-center relative shadow-2xl shadow-[#2d8cf0]/10">
+              <Share2 className="w-6 h-6 text-[#2d8cf0]" />
+              <div className="absolute -top-1 -right-1 w-4 h-4 rounded bg-[#2d8cf0] flex items-center justify-center">
+                <Zap className="w-2 h-2 text-white" />
               </div>
             </div>
-            <div className="text-center">
-              <div className="text-[9px] font-bold text-[#2d8cf0] uppercase tracking-widest">MLink Cloud Platform</div>
-              <div className="text-[7px] text-zinc-500 font-mono mt-1">api.mlink-iot.com</div>
-            </div>
+            <span className="text-[8px] font-bold text-[#2d8cf0] uppercase tracking-widest">MLink</span>
           </motion.div>
 
         </div>

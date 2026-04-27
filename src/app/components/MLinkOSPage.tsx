@@ -314,7 +314,7 @@ export function MLinkOSPage() {
                   </div>
                 </div>
 
-                <div className="flex-1 w-full max-w-xl">
+                <div className="flex-1 w-full max-w-xl mx-auto">
                   <div className="relative group">
                     {/* Decorative outer glow */}
                     <div className="absolute -inset-4 bg-[#2d8cf0]/5 rounded-[3.5rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />

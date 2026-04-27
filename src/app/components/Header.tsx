@@ -56,7 +56,7 @@ export function Header() {
                   <Link to="/protection" className="flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-bold text-zinc-600 hover:text-[#2d8cf0] hover:bg-[#2d8cf0]/5 transition-all group/item">
                     麦联保驾 <span className="text-[10px] opacity-30 font-mono tracking-tighter">Care</span>
                   </Link>
-                  <Link to="/jiluzhe" className="flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-bold text-zinc-600 hover:text-[#2d8cf0] hover:bg-[#2d8cf0]/5 transition-all group/item">
+                  <Link to="/jiluzhe" className="flex items-center justify-start gap-2 px-4 py-2.5 rounded-xl text-sm font-bold text-zinc-600 hover:text-[#2d8cf0] hover:bg-[#2d8cf0]/5 transition-all group/item">
                     记路者 <span className="text-[10px] opacity-30 font-mono tracking-tighter">App</span>
                   </Link>
                 </div>
