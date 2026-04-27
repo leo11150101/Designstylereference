@@ -17,9 +17,70 @@ export function TechGraphic({ type }: TechGraphicProps) {
       return <LBSGraphic />;
     case "cloud-plus":
       return <CloudGraphic />;
+    case "hero-0":
+      return <HeroNetworkGraphic />;
+    case "hero-1":
+      return <HeroDataGraphic />;
+    case "hero-2":
+      return <HeroOSGraphic />;
     default:
       return <div className="w-full h-full bg-zinc-900 rounded-2xl" />;
   }
+}
+
+function HeroNetworkGraphic() {
+  return (
+    <div className="relative w-full h-full bg-white overflow-hidden flex items-center justify-center">
+      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#2d8cf0 1.5px, transparent 1.5px)', backgroundSize: '40px 40px' }} />
+      <motion.div 
+        className="relative w-[600px] h-[600px]"
+        animate={{ rotate: 360 }}
+        transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+      >
+        <div className="absolute inset-0 border border-[#2d8cf0]/20 rounded-full" />
+        <div className="absolute inset-20 border border-[#2d8cf0]/15 rounded-full" />
+        <div className="absolute inset-40 border border-[#2d8cf0]/10 rounded-full" />
+      </motion.div>
+      <div className="absolute flex flex-col items-center gap-4 opacity-20">
+        <Globe className="w-32 h-32 text-[#2d8cf0]" />
+        <div className="h-[2px] w-48 bg-linear-to-r from-transparent via-[#2d8cf0] to-transparent" />
+      </div>
+    </div>
+  );
+}
+
+function HeroDataGraphic() {
+  return (
+    <div className="relative w-full h-full bg-white overflow-hidden flex items-center justify-center">
+      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(45deg, #2d8cf0 1px, transparent 1px), linear-gradient(-45deg, #2d8cf0 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
+      <div className="flex gap-12 opacity-20">
+        {[0, 1, 2, 3, 4].map((i) => (
+          <motion.div 
+            key={i}
+            className="w-[1px] h-64 bg-linear-to-b from-transparent via-[#2d8cf0] to-transparent"
+            animate={{ opacity: [0.3, 1, 0.3], scaleY: [0.8, 1.2, 0.8] }}
+            transition={{ delay: i * 0.2, duration: 2, repeat: Infinity }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function HeroOSGraphic() {
+  return (
+    <div className="relative w-full h-full bg-white overflow-hidden flex items-center justify-center">
+      <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'linear-gradient(#2d8cf0 1px, transparent 1px), linear-gradient(to right, #2d8cf0 1px, transparent 1px)', backgroundSize: '100px 100px' }} />
+      <div className="relative opacity-20">
+        <Cpu className="w-64 h-64 text-[#2d8cf0]" />
+        <motion.div 
+          className="absolute inset-0 border-2 border-[#2d8cf0] rounded-xl"
+          animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0.2, 0.5] }}
+          transition={{ duration: 4, repeat: Infinity }}
+        />
+      </div>
+    </div>
+  );
 }
 
 function GridBackground() {

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { motion } from 'motion/react';
+import { TechGraphic } from './TechGraphic';
 
 export function Hero() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -14,9 +15,9 @@ export function Hero() {
   ];
 
   const bgImages = [
-    "https://images.unsplash.com/photo-1515018993613-681b765562d1?auto=format&fit=crop&q=80&w=1080",
-    "https://images.unsplash.com/photo-1720036236694-d0a231c52563?auto=format&fit=crop&q=80&w=1080",
-    "https://images.unsplash.com/photo-1562811950-41d4a4944a4b?auto=format&fit=crop&q=80&w=1080",
+    "https://images.unsplash.com/photo-1763929154494-a3d6eba05282?auto=format&fit=crop&q=80&w=1920",
+    "https://images.unsplash.com/photo-1726419152177-45a50f96c312?auto=format&fit=crop&q=80&w=1920",
+    "https://images.unsplash.com/photo-1767477665610-006b0171453b?auto=format&fit=crop&q=80&w=1920",
   ];
 
   useEffect(() => {
@@ -35,16 +36,18 @@ export function Hero() {
       <div className="absolute inset-0 z-0 overflow-hidden">
         {bgImages.map((src, index) => (
           <div
-            key={src}
-            className={`absolute inset-0 bg-center bg-cover bg-no-repeat transition-opacity duration-1000 ease-in-out ${
+            key={index}
+            className={`absolute inset-0 bg-center bg-cover bg-no-repeat transition-opacity duration-1000 ease-in-out z-0 ${
               index === bgIndex ? 'opacity-100' : 'opacity-0'
             }`}
             style={{
-              backgroundImage: `url('${src}')`,
-              maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 40%, transparent 75%)',
-              WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 40%, transparent 75%)'
+              backgroundImage: `url('${bgImages[index]}')`,
+              maskImage: 'linear-gradient(to bottom, black 0%, rgba(0,0,0,0.4) 50%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(to bottom, black 0%, rgba(0,0,0,0.4) 50%, transparent 100%)'
             }}
-          />
+          >
+            <div className="absolute inset-0 bg-white/40" />
+          </div>
         ))}
 
         {/* Prev / Next buttons */}

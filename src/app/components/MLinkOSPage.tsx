@@ -29,6 +29,7 @@ import {
 import { motion, AnimatePresence } from 'motion/react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { useState } from 'react';
+import { DeviceAccessGraphic, CloudAccessGraphic } from './IntegrationGraphics';
 
 export function MLinkOSPage() {
   const [activeIntegration, setActiveIntegration] = useState<'device' | 'cloud'>('device');
@@ -277,33 +278,36 @@ export function MLinkOSPage() {
           <AnimatePresence mode="wait">
             <motion.div 
               key={activeIntegration}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.4 }}
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1.02 }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               className="space-y-24"
             >
               {/* Solution Hero */}
               <div className={`flex flex-col lg:flex-row items-center gap-16 ${activeIntegration === 'cloud' ? 'lg:flex-row-reverse' : ''}`}>
                 <div className="flex-1 space-y-8">
-                  <span className="inline-block px-3 py-1 rounded-full bg-[#2d8cf0]/5 text-[#2d8cf0] text-[10px] font-bold uppercase tracking-widest">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#2d8cf0]/10 border border-[#2d8cf0]/20 text-[#2d8cf0] text-[10px] font-bold uppercase tracking-[0.2em]">
+                    <span className="w-1 h-1 rounded-full bg-[#2d8cf0] animate-pulse" />
                     {currentIntegration.tagline}
-                  </span>
+                  </div>
                   <h3 className="text-3xl lg:text-5xl font-black text-zinc-900 leading-tight">
                     {currentIntegration.title}
                   </h3>
-                  <p className="text-lg text-zinc-500 leading-relaxed">
+                  <p className="text-lg text-zinc-500 leading-relaxed max-w-xl">
                     {currentIntegration.desc}
                   </p>
                   
                   {/* Advantages Sub-grid */}
-                  <div className="grid sm:grid-cols-2 gap-6 pt-4">
+                  <div className="grid sm:grid-cols-2 gap-x-8 gap-y-6 pt-4">
                     {currentIntegration.advantages.slice(0, 4).map((adv, idx) => (
-                      <div key={idx} className="flex gap-4 items-start">
-                        <div className="mt-1 text-[#2d8cf0]">{adv.icon}</div>
+                      <div key={idx} className="group/item flex gap-4 items-start">
+                        <div className="mt-1 p-2 rounded-lg bg-zinc-50 text-[#2d8cf0] group-hover/item:bg-[#2d8cf0] group-hover/item:text-white transition-colors duration-300">
+                          {adv.icon}
+                        </div>
                         <div>
-                          <p className="font-bold text-zinc-900 text-sm">{adv.title}</p>
-                          <p className="text-xs text-zinc-400 mt-1">{adv.desc}</p>
+                          <p className="font-bold text-zinc-900 text-sm group-hover/item:text-[#2d8cf0] transition-colors">{adv.title}</p>
+                          <p className="text-xs text-zinc-400 mt-1 leading-relaxed">{adv.desc}</p>
                         </div>
                       </div>
                     ))}
@@ -311,9 +315,14 @@ export function MLinkOSPage() {
                 </div>
 
                 <div className="flex-1 w-full max-w-xl">
-                  <div className="relative group p-1 bg-zinc-50 border border-zinc-100 rounded-[2.5rem] overflow-hidden shadow-sm">
-                    <div className="relative aspect-[4/3] rounded-[2.3rem] overflow-hidden bg-white border border-zinc-100">
-                      <ImageWithFallback src={currentIntegration.heroImg} alt={currentIntegration.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+                  <div className="relative group">
+                    {/* Decorative outer glow */}
+                    <div className="absolute -inset-4 bg-[#2d8cf0]/5 rounded-[3.5rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                    
+                    <div className="relative p-1 bg-zinc-900 border border-zinc-800 rounded-[2.5rem] overflow-hidden shadow-2xl">
+                      <div className="relative aspect-[4/3] rounded-[2.3rem] overflow-hidden">
+                        {activeIntegration === 'device' ? <DeviceAccessGraphic /> : <CloudAccessGraphic />}
+                      </div>
                     </div>
                   </div>
                 </div>
