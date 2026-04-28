@@ -63,17 +63,17 @@ export function MRTSPage() {
 
   const scenarios = [
     { 
-      image: "https://images.unsplash.com/photo-1762700315913-1a1e43da23b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", 
+      image: "https://images.unsplash.com/photo-1758411898502-013b0cd3421c?auto=format&fit=crop&q=80&w=1080", 
       title: '车联网与品牌商', 
       desc: '提供百万级并发的车机推流与远程预览能力，赋能智慧出行。' 
     },
     { 
-      image: "https://images.unsplash.com/photo-1461175128502-8b13d90ee1ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", 
+      image: "https://images.unsplash.com/photo-1758514474995-390bfe57c5be?auto=format&fit=crop&q=80&w=1080", 
       title: '传统 IP 摄像机', 
       desc: '旧设备一键升级流媒体云服务，实现跨网预览与录像回放。' 
     },
     { 
-      image: "https://images.unsplash.com/photo-1737107917757-ba84495569a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", 
+      image: "https://images.unsplash.com/photo-1764162051300-1021c8277419?auto=format&fit=crop&q=80&w=1080", 
       title: '移动推流应用', 
       desc: '适配手机摄像头推流，支持直播带货、现场查勘等多种业务场景。' 
     },
@@ -308,12 +308,35 @@ export function MRTSPage() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
-                <div className="aspect-video relative overflow-hidden">
-                  <ImageWithFallback src={s.image} alt={s.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  <div className="absolute bottom-6 left-6 text-white">
-                    <h3 className="text-2xl font-bold">{s.title}</h3>
+                <div className="aspect-video relative rounded-3xl overflow-hidden border border-zinc-200 bg-zinc-50 shadow-2xl shadow-zinc-200/50 group/img flex items-center justify-center">
+                  <ImageWithFallback 
+                    src={s.image} 
+                    alt={s.title} 
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover/img:scale-110" 
+                  />
+                  
+                  {/* Technical Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/60 via-transparent to-transparent opacity-60 group-hover/img:opacity-80 transition-opacity" />
+                  
+                  {/* Corner Accents */}
+                  <div className="absolute top-4 left-4 w-3 h-3 border-t border-l border-white/40 pointer-events-none" />
+                  <div className="absolute top-4 right-4 w-3 h-3 border-t border-r border-white/40 pointer-events-none" />
+                  <div className="absolute bottom-4 left-4 w-3 h-3 border-b border-l border-white/40 pointer-events-none" />
+                  <div className="absolute bottom-4 right-4 w-3 h-3 border-b border-r border-white/40 pointer-events-none" />
+
+                  {/* Bottom Status Bar */}
+                  <div className="absolute bottom-4 inset-x-4 flex items-center justify-between z-10">
+                    <div className="flex items-center gap-1.5 px-2 py-1 bg-black/40 backdrop-blur-md rounded border border-white/10 text-[7px] font-mono text-white/80 tracking-tight transition-all duration-500 group-hover/img:translate-x-1">
+                      <div className="w-1 h-1 rounded-full bg-[#2d8cf0] animate-pulse" />
+                      <span>STREAMING_NODE_0{i+1}</span>
+                    </div>
+                    <div className="px-2 py-1 bg-white/10 backdrop-blur-md rounded border border-white/10 text-[7px] font-mono text-white/60 tracking-tight transition-all duration-500 group-hover/img:-translate-x-1">
+                      FPS: 60.0
+                    </div>
                   </div>
+
+                  {/* Scanline Effect */}
+                  <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%)] bg-[size:100%_4px] pointer-events-none opacity-10" />
                 </div>
                 <div className="p-8">
                   <p className="text-zinc-500 leading-relaxed mb-6">{s.desc}</p>

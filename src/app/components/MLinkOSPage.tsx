@@ -350,7 +350,7 @@ export function MLinkOSPage() {
       {/* 4. Original Tech Stack (Layered Visualization) */}
       <section className="py-24 bg-zinc-950 text-white overflow-hidden relative">
         <div className="absolute inset-0 opacity-10 pointer-events-none">
-          <ImageWithFallback src="https://images.unsplash.com/photo-1720036236694-d0a231c52563?auto=format&fit=crop&q=80&w=1080" alt="background" className="w-full h-full object-cover" />
+          <ImageWithFallback src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1080" alt="background" className="w-full h-full object-cover" />
         </div>
         
         <div className="mx-auto max-w-7xl px-6 relative z-10">

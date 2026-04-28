@@ -64,9 +64,9 @@ export function LocationCloudPage() {
   ];
 
   const scenarios = [
-    { title: '场景化业务开发', desc: '符合车联网行业数据订阅二次开发标准，助力合作伙伴快速构建上层行业应用。', image: 'https://images.unsplash.com/photo-1562811950-41d4a4944a4b?auto=format&fit=crop&q=80&w=1080' },
-    { title: '多维数据挖掘', desc: '对企业资产进行全量轨迹管理与保养业务数据分析，深度挖掘沉淀数据的核心价值。', image: 'https://images.unsplash.com/photo-1647019766641-2c7cf0c19a11?auto=format&fit=crop&q=80&w=1080' },
-    { title: '双向交互控制', desc: '基于订阅服务发送实时指令到硬件设备，实现车辆的远程控制、参数调优与高效交互。', image: 'https://images.unsplash.com/photo-1684141402511-3666ae53f25f?auto=format&fit=crop&q=80&w=1080' },
+    { title: '场景化业务开发', desc: '符合车联网行业数据订阅二次开发标准，助力合作伙伴快速构建上层行业应用。', image: 'https://images.unsplash.com/photo-1660810731526-0720827cbd38?auto=format&fit=crop&q=80&w=1080' },
+    { title: '多维数据挖掘', desc: '对企业资产进行全量轨迹管理与保养业务数据分析，深度挖掘沉淀数据的核心价值。', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1080' },
+    { title: '双向交互控制', desc: '基于订阅服务发送实时指令到硬件设备，实现车辆的远程控制、参数调优与高效交互。', image: 'https://images.unsplash.com/photo-1621523027246-a5c3eae0382d?auto=format&fit=crop&q=80&w=1080' },
   ];
 
   const apiSample = `{
@@ -222,8 +222,40 @@ export function LocationCloudPage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
               >
-                <div className="aspect-[16/11] rounded-[2.8rem] overflow-hidden">
-                  <ImageWithFallback src="https://images.unsplash.com/photo-1674683685332-894bed153f19?auto=format&fit=crop&q=80&w=1080" alt="Data Push" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+                <div className="aspect-[16/11] rounded-[2.8rem] overflow-hidden relative group/img">
+                  <ImageWithFallback 
+                    src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1080" 
+                    alt="Data Push" 
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover/img:scale-105" 
+                  />
+                  
+                  {/* Technical Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#2d8cf0]/20 via-transparent to-zinc-900/60 opacity-60 group-hover/img:opacity-80 transition-opacity" />
+                  
+                  {/* Status Badges */}
+                  <div className="absolute top-8 left-8 flex items-center gap-3 px-4 py-2 bg-white/90 backdrop-blur-md rounded-xl border border-white/50 shadow-xl z-10 transition-all duration-500 group-hover/img:-translate-y-1">
+                    <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="text-[10px] font-black uppercase tracking-widest text-zinc-600">Pipeline Active</span>
+                  </div>
+
+                  {/* Telemetry Data Overlay */}
+                  <div className="absolute bottom-8 right-8 flex flex-col gap-2 items-end z-10">
+                    {[
+                      { label: "LATENCY", value: "24ms" },
+                      { label: "THROUGHPUT", value: "14.2GB/s" },
+                      { label: "REGION", value: "US-EAST-1" }
+                    ].map((item, idx) => (
+                      <div key={idx} className="px-3 py-1.5 bg-black/40 backdrop-blur-md rounded-lg border border-white/10 text-[8px] font-mono text-white/80 tracking-tight transition-all duration-500 group-hover/img:translate-x-1" style={{ transitionDelay: `${idx * 100}ms` }}>
+                        <span className="text-white/40 mr-2">{item.label}</span>
+                        <span>{item.value}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* HUD Elements */}
+                  <div className="absolute inset-0 border-[20px] border-white/5 pointer-events-none" />
+                  <div className="absolute top-1/2 left-8 w-1 h-12 bg-white/20 -translate-y-1/2 rounded-full" />
+                  <div className="absolute top-1/2 right-8 w-1 h-12 bg-white/20 -translate-y-1/2 rounded-full" />
                 </div>
               </motion.div>
             </div>
@@ -260,17 +292,46 @@ export function LocationCloudPage() {
             {scenarios.map((scene, i) => (
               <motion.div 
                 key={i} 
-                className="group relative rounded-[2.5rem] overflow-hidden aspect-[4/5] border border-zinc-100 shadow-xl"
+                className="group relative rounded-[2.5rem] overflow-hidden aspect-[4/5] border border-zinc-100 shadow-xl group/card"
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
-                <ImageWithFallback src={scene.image} alt={scene.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/40 to-transparent opacity-90" />
-                <div className="absolute bottom-0 left-0 right-0 p-10 text-left">
+                <div className="absolute inset-0 z-0">
+                  <ImageWithFallback 
+                    src={scene.image} 
+                    alt={scene.title} 
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover/card:scale-110" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/40 to-transparent opacity-90 group-hover/card:opacity-95 transition-opacity" />
+                </div>
+                
+                {/* Technical HUD Overlay */}
+                <div className="absolute top-6 left-6 right-6 flex justify-between items-start z-10 opacity-40 group-hover/card:opacity-100 transition-opacity">
+                  <div className="flex flex-col gap-1">
+                    <div className="text-[8px] font-mono text-[#2d8cf0]">SCENARIO_ID: 0x{i+1024}</div>
+                    <div className="text-[8px] font-mono text-white/40 tracking-widest uppercase">Targeting_Enabled</div>
+                  </div>
+                  <div className="w-8 h-8 rounded border border-white/20 flex items-center justify-center">
+                    <div className="w-1 h-1 bg-white rounded-full animate-ping" />
+                  </div>
+                </div>
+
+                <div className="absolute bottom-0 left-0 right-0 p-10 text-left z-10 transition-transform duration-500 group-hover/card:-translate-y-2">
                   <h3 className="text-2xl font-black text-white mb-4">{scene.title}</h3>
                   <p className="text-sm text-white/70 leading-relaxed">{scene.desc}</p>
+                  
+                  <div className="mt-6 pt-6 border-t border-white/10 flex items-center gap-4 opacity-0 group-hover/card:opacity-100 transition-all duration-700 translate-y-4 group-hover/card:translate-y-0">
+                    <div className="flex -space-x-2">
+                      {[1, 2, 3].map(j => (
+                        <div key={j} className="w-6 h-6 rounded-full bg-zinc-800 border-2 border-zinc-900 flex items-center justify-center">
+                          <div className="w-1 h-1 bg-[#2d8cf0] rounded-full" />
+                        </div>
+                      ))}
+                    </div>
+                    <span className="text-[8px] font-mono text-white/40">3 ACTIVE_NODES</span>
+                  </div>
                 </div>
               </motion.div>
             ))}

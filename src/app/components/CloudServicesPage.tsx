@@ -118,14 +118,71 @@ export function CloudServicesPage() {
                 >
                   <div className="relative group">
                     <div className="absolute -inset-4 bg-zinc-50 rounded-[3rem] -z-10 transition-colors group-hover:bg-zinc-100/80" />
-                    <div className="relative aspect-video rounded-2xl overflow-hidden border border-zinc-200 bg-white shadow-sm flex items-center justify-center">
+                    <div className="relative aspect-video rounded-3xl overflow-hidden border border-zinc-200 bg-zinc-50 shadow-2xl shadow-zinc-200/50 group/img flex items-center justify-center">
                       <ImageWithFallback 
                         src={service.image} 
                         alt={service.title} 
-                        className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" 
+                        className="w-full h-full object-cover transition-transform duration-1000 group-hover/img:scale-110" 
                       />
-                      <div className="absolute top-6 left-6 w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center text-[#2d8cf0] border border-zinc-100">
-                        {service.icon}
+                      
+                      {/* Technical Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/60 via-transparent to-transparent opacity-60 group-hover/img:opacity-80 transition-opacity" />
+                      
+                      {/* Corner Accents */}
+                      <div className="absolute top-4 left-4 w-4 h-4 border-t-2 border-l-2 border-white/40 rounded-tl-sm pointer-events-none" />
+                      <div className="absolute top-4 right-4 w-4 h-4 border-t-2 border-r-2 border-white/40 rounded-tr-sm pointer-events-none" />
+                      <div className="absolute bottom-4 left-4 w-4 h-4 border-b-2 border-l-2 border-white/40 rounded-bl-sm pointer-events-none" />
+                      <div className="absolute bottom-4 right-4 w-4 h-4 border-b-2 border-r-2 border-white/40 rounded-br-sm pointer-events-none" />
+
+                      {/* Floating Badge */}
+                      <div className="absolute top-6 left-6 flex items-center gap-3 px-4 py-2 bg-white/90 backdrop-blur-md rounded-xl shadow-xl border border-white/50 text-[#2d8cf0] z-10 transition-transform duration-500 group-hover/img:-translate-y-1">
+                        <div className="flex-shrink-0">{service.icon}</div>
+                        <div className="w-px h-4 bg-zinc-200" />
+                        <span className="text-[10px] font-black uppercase tracking-widest text-zinc-600">Secure Node</span>
+                      </div>
+
+                      {/* Bottom Status Bar */}
+                      <div className="absolute bottom-6 inset-x-6 flex items-center justify-between z-10">
+                        <div className="flex items-center gap-2 px-3 py-1.5 bg-black/40 backdrop-blur-md rounded-lg border border-white/10 text-[8px] font-mono text-white/80 tracking-tight transition-all duration-500 group-hover/img:translate-x-1">
+                          <div className="w-1 h-1 rounded-full bg-[#2d8cf0] animate-pulse" />
+                          <span>ENCRYPTED_STREAM_V4.2</span>
+                        </div>
+                        <div className="px-3 py-1.5 bg-white/10 backdrop-blur-md rounded-lg border border-white/10 text-[8px] font-mono text-white/60 tracking-tight transition-all duration-500 group-hover/img:-translate-x-1">
+                          IO_FREQ: 1.2GB/s
+                        </div>
+                      </div>
+
+                      {/* Dynamic HUD & Viewfinder Replacement */}
+                      <div className="absolute inset-0 pointer-events-none">
+                        {/* Scanning Bar */}
+                        <motion.div 
+                          className="absolute inset-x-0 h-[1px] bg-[#2d8cf0] shadow-[0_0_15px_rgba(45,140,240,0.8)] z-20"
+                          animate={{ top: ['0%', '100%', '0%'] }}
+                          transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+                        />
+                        
+                        {/* HUD Reticle */}
+                        <div className="absolute inset-10 border border-white/5 rounded-sm">
+                          <div className="absolute -top-1 -left-1 w-4 h-4 border-t-2 border-l-2 border-[#2d8cf0]" />
+                          <div className="absolute -top-1 -right-1 w-4 h-4 border-t-2 border-r-2 border-[#2d8cf0]" />
+                          <div className="absolute -bottom-1 -left-1 w-4 h-4 border-b-2 border-l-2 border-[#2d8cf0]" />
+                          <div className="absolute -bottom-1 -right-1 w-4 h-4 border-b-2 border-r-2 border-[#2d8cf0]" />
+                        </div>
+
+                        {/* Bitrate & Signal Graph (Simplified SVG) */}
+                        <div className="absolute top-20 right-8 flex flex-col gap-1 items-end">
+                          <div className="flex gap-0.5 items-end h-4">
+                            {[0.4, 0.7, 0.5, 0.9, 0.6, 0.8].map((h, i) => (
+                              <motion.div 
+                                key={i}
+                                className="w-1 bg-[#2d8cf0]/40"
+                                animate={{ height: [`${h*100}%`, `${(1-h)*100}%`, `${h*100}%`] }}
+                                transition={{ duration: 2, repeat: Infinity, delay: i * 0.2 }}
+                              />
+                            ))}
+                          </div>
+                          <span className="text-[6px] font-mono text-[#2d8cf0]/60 uppercase">Signal_Strength</span>
+                        </div>
                       </div>
                     </div>
                   </div>
