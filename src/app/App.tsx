@@ -1,6 +1,7 @@
 import { RouterProvider, createBrowserRouter, Outlet } from 'react-router';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
+import { BackToTop } from './components/BackToTop';
 import { ProductCatalog } from './components/ProductCatalog';
 import { InteractiveDemo } from './components/InteractiveDemo';
 import { CaseStudies } from './components/CaseStudies';
@@ -21,6 +22,7 @@ function Root() {
         <Outlet />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 }
